@@ -1,8 +1,19 @@
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { useEffect, useState } from 'react'
 
 function App() {
+    const [code, setCode] = useState('')
+
+    useEffect(() => {
+        const queryString = window.location.search
+        const urlParams = new URLSearchParams(queryString)
+        const codeParam = urlParams.get('code')
+
+        setCode(codeParam || '')
+    }, [])
+
     const loginWithGitHub = () => {
         window.location.assign(
             'https://github.com/login/oauth/authorize?client_id=' +
@@ -11,8 +22,10 @@ function App() {
         )
     }
 
+    console.log(code)
+
     return (
-        <>
+        <div>
             <h1>GitHub Customize</h1>
             <div>
                 <a href='https://vitejs.dev' target='_blank'>
@@ -32,7 +45,7 @@ function App() {
                     Login with GitHub in order to enter the application.
                 </p>
             </div>
-        </>
+        </div>
     )
 }
 
