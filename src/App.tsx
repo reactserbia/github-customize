@@ -3,6 +3,14 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
+    const loginWithGitHub = () => {
+        window.location.assign(
+            'https://github.com/login/oauth/authorize?client_id=' +
+                import.meta.env.VITE_GITHUB_CLIENT_ID +
+                '&scope=user'
+        )
+    }
+
     return (
         <>
             <h1>GitHub Customize</h1>
@@ -19,7 +27,7 @@ function App() {
                 </a>
             </div>
             <div className='card'>
-                <button onClick={() => {}}>Login with GitHub</button>
+                <button onClick={loginWithGitHub}>Login with GitHub</button>
                 <p className='read-the-docs'>
                     Login with GitHub in order to enter the application.
                 </p>
