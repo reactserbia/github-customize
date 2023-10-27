@@ -7,6 +7,7 @@ import axios from 'axios'
 function App() {
     const [code, setCode] = useState('')
     const [accessToken, setAccessToken] = useState('')
+    const [userData, setUserData] = useState(null)
 
     useEffect(() => {
         const queryString = window.location.search
@@ -48,13 +49,50 @@ function App() {
         }
     }
 
+    const getUserData = async () => {
+        try {
+            const { data } = await axios.post(
+                'https://api.github.com/user',
+                {
+                    accessToken
+                },
+                {
+                    headers: {
+                        Accept: 'application/vnd.github+json',
+                        Authorization: `Bearer ${accessToken}`,
+                        'Content-Type': 'application/json',
+                        'X-GitHub-Api-Version': '2022-11-28'
+                    }
+                }
+            )
+
+            console.log('USER DATA', data)
+
+            setUserData(data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     console.log(code)
     console.log(accessToken)
 
     return (
         <div>
             {(() => {
-                if (accessToken) return <p>Access Token: {accessToken}</p>
+                if (userData)
+                    return (
+                        <pre style={{ textAlign: 'left' }}>
+                            {JSON.stringify(userData, null, 2)}
+                        </pre>
+                    )
+                if (accessToken)
+                    return (
+                        <div>
+                            <p>Access Token: {accessToken}</p>
+                            <button onClick={getUserData}>Get User Data</button>
+                        </div>
+                    )
                 if (code)
                     return (
                         <button onClick={getAccessToken}>
