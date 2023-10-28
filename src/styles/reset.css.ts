@@ -57,7 +57,11 @@ globalStyle('h1', {
 
 globalStyle('p', {
     fontSize: '1rem',
-    fontWeight: 700,
     color: vars.textContrastLow,
     margin: 0
+})
+
+globalStyle('pre', {
+    fontSize: '1rem',
+    color: vars.textContrastLow
 })

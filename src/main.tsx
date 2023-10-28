@@ -3,7 +3,7 @@ import './styles/reset.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-import { Layout } from './providers/layout1'
+import { Layout } from './providers/layout'
 import { LoginGuard } from './providers/login-guard'
 
 import { Home } from './routes/home'

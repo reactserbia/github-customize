@@ -1,6 +1,4 @@
-import reactLogo from '../../assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './login.css'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
@@ -63,35 +61,11 @@ export function Login({ setGithubAccessToken }: LoginProps) {
                     )
 
                 return (
-                    <>
-                        <h1>GitHub Enhancer</h1>
-                        <p>by React Serbia</p>
-                        <div>
-                            <a href='https://vitejs.dev' target='_blank'>
-                                <img
-                                    src={viteLogo}
-                                    className='logo'
-                                    alt='Vite logo'
-                                />
-                            </a>
-                            <a href='https://react.dev' target='_blank'>
-                                <img
-                                    src={reactLogo}
-                                    className='logo react'
-                                    alt='React logo'
-                                />
-                            </a>
-                        </div>
-                        <div className='card'>
-                            <button onClick={loginWithGitHub}>
-                                Login with GitHub
-                            </button>
-                            <p className='read-the-docs'>
-                                Login with GitHub in order to enter the
-                                application.
-                            </p>
-                        </div>
-                    </>
+                    <div className='card'>
+                        <button onClick={loginWithGitHub}>
+                            Login with GitHub
+                        </button>
+                    </div>
                 )
             })()}
         </div>

@@ -23,7 +23,9 @@ export const Layout = ({ children }: { children: ReactNode }) => {
             </header>
             <div className={content}>
                 <h1>GitHub Enhancer</h1>
-                <p style={{ marginBottom: 40 }}>by React Serbia</p>
+                <p style={{ fontStyle: 'italic', marginBottom: 40 }}>
+                    by React Serbia
+                </p>
                 {children}
             </div>
         </div>
