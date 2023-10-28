@@ -102,7 +102,8 @@ function App() {
 
                 return (
                     <>
-                        <h1>GitHub Customize</h1>
+                        <h1>GitHub Enhancer</h1>
+                        <p>by React Serbia</p>
                         <div>
                             <a href='https://vitejs.dev' target='_blank'>
                                 <img

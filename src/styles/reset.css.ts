@@ -22,14 +22,17 @@ globalStyle(':root', {
     textRendering: 'optimizeLegibility',
     WebkitFontSmoothing: 'antialiased',
     MozOsxFontSmoothing: 'grayscale',
-    WebkitTextSizeAdjust: '100%'
+    WebkitTextSizeAdjust: '100%',
+    textAlign: 'center',
+    margin: '0 auto'
 })
 
 globalStyle('button', {
-    padding: '0.3rem 1rem',
+    padding: '0.4rem 1rem',
     border: `1px solid ${vars.bordersInteractive}`,
     borderRadius: 4,
     fontSize: '1rem',
+    color: vars.textContrastLow,
     backgroundColor: vars.elementBackground,
     cursor: 'pointer'
 })
@@ -42,4 +45,18 @@ globalStyle('button:hover', {
 globalStyle('button:active', {
     border: `1px solid ${vars.bordersInteractiveFocused}`,
     backgroundColor: vars.elementBackgroundActive
+})
+
+globalStyle('h1', {
+    fontSize: '2rem',
+    fontWeight: 700,
+    color: vars.textContrastHigh,
+    margin: 0
+})
+
+globalStyle('p', {
+    fontSize: '1rem',
+    fontWeight: 700,
+    color: vars.textContrastLow,
+    margin: 0
 })

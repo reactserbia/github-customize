@@ -36,8 +36,8 @@ export const light = createTheme(vars, {
     solidBackground: sky.sky9,
     solidBackgroundHovered: sky.sky10,
 
-    textContrastLow: sky.sky12,
-    textContrastHigh: sky.sky11
+    textContrastLow: sky.sky11,
+    textContrastHigh: sky.sky12
 })
 
 export const dark = createTheme(vars, {
@@ -55,6 +55,6 @@ export const dark = createTheme(vars, {
     solidBackground: cyanDark.cyan9,
     solidBackgroundHovered: cyanDark.cyan10,
 
-    textContrastLow: cyanDark.cyan12,
-    textContrastHigh: cyanDark.cyan11
+    textContrastLow: cyanDark.cyan11,
+    textContrastHigh: cyanDark.cyan12
 })
