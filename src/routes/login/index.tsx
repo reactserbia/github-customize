@@ -1,13 +1,15 @@
-import reactLogo from './assets/react.svg'
+import reactLogo from '../../assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-function App() {
+type LoginProps = {
+    setGithubAccessToken: (accessToken: string) => void
+}
+
+export function Login({ setGithubAccessToken }: LoginProps) {
     const [code, setCode] = useState('')
-    const [accessToken, setAccessToken] = useState('')
-    const [userData, setUserData] = useState(null)
 
     useEffect(() => {
         const queryString = window.location.search
@@ -39,32 +41,12 @@ function App() {
                 }
             )
 
-            if (data.response?.access_token) {
-                setAccessToken(data.response.access_token)
-            }
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-    const getUserData = async () => {
-        try {
-            const { data } = await axios.post(
-                'https://api.github.com/user',
-                {
-                    accessToken
-                },
-                {
-                    headers: {
-                        Accept: 'application/vnd.github+json',
-                        Authorization: `Bearer ${accessToken}`,
-                        'Content-Type': 'application/json',
-                        'X-GitHub-Api-Version': '2022-11-28'
-                    }
-                }
+            if (data.response?.access_token)
+                setGithubAccessToken(data.response.access_token)
+            localStorage.setItem(
+                'gitHubAccessToken',
+                data.response.access_token
             )
-
-            setUserData(data)
         } catch (error) {
             console.log(error)
         }
@@ -73,19 +55,6 @@ function App() {
     return (
         <div>
             {(() => {
-                if (userData)
-                    return (
-                        <pre style={{ textAlign: 'left' }}>
-                            {JSON.stringify(userData, null, 2)}
-                        </pre>
-                    )
-                if (accessToken)
-                    return (
-                        <div>
-                            <p>Access Token: {accessToken}</p>
-                            <button onClick={getUserData}>Get User Data</button>
-                        </div>
-                    )
                 if (code)
                     return (
                         <button onClick={getAccessToken}>
@@ -128,5 +97,3 @@ function App() {
         </div>
     )
 }
-
-export default App
