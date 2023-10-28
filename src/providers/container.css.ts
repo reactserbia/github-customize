@@ -20,3 +20,13 @@ export const content = style({
     alignItems: 'center',
     padding: '0 2rem'
 })
+
+export const button = style({
+    width: 36,
+    height: 36,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontSize: '1.5rem',
+    borderRadius: 100
+})

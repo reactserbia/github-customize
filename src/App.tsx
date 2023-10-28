@@ -39,8 +39,6 @@ function App() {
                 }
             )
 
-            console.log(data)
-
             if (data.response?.access_token) {
                 setAccessToken(data.response.access_token)
             }
@@ -66,16 +64,11 @@ function App() {
                 }
             )
 
-            console.log('USER DATA', data)
-
             setUserData(data)
         } catch (error) {
             console.log(error)
         }
     }
-
-    console.log(code)
-    console.log(accessToken)
 
     return (
         <div>

@@ -1,6 +1,6 @@
 import { ReactNode, useEffect, useState } from 'react'
 
-import { container, content } from './container.css'
+import { container, content, button } from './container.css'
 import { light, dark } from '../styles/vars.css'
 
 export const Layout = ({ children }: { children: ReactNode }) => {
@@ -16,7 +16,9 @@ export const Layout = ({ children }: { children: ReactNode }) => {
         <div>
             <div className={container}>
                 <div className={content}>
-                    <button onClick={toggleTheme}>🌗</button>
+                    <button className={button} onClick={toggleTheme}>
+                        {`${themeIsLight ? '🌚' : '🌞'}`}
+                    </button>
                 </div>
             </div>
             {children}
