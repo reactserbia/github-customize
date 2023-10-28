@@ -11,7 +11,7 @@ globalStyle('*', {
 globalStyle('body', {
     minWidth: '320px',
     minHeight: '100vh',
-    backgroundColor: vars.backgroundColor
+    backgroundColor: vars.appBackground
 })
 
 globalStyle(':root', {
