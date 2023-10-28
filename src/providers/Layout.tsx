@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useState } from 'react'
 
 import { container } from './container.css'
-import { light, dark } from '../vars.css'
+import { light, dark } from '../styles/vars.css'
 
 export const Layout = ({ children }: { children: ReactNode }) => {
     const [themeIsLight, setThemeIsLight] = useState(true)
