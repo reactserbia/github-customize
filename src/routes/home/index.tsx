@@ -3,6 +3,7 @@ import axios from 'axios'
 
 export function Home() {
     const [userData, setUserData] = useState(null)
+    const [code, linkedInCode] = useState('')
 
     const getUserData = async () => {
         const githubAccessToken = localStorage.getItem('gitHubAccessToken')
@@ -27,6 +28,14 @@ export function Home() {
         }
     }
 
+    const linkedInSSO = () => {
+        window.location.assign(
+            `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${
+                import.meta.env.VITE_LINKEDIN_CLIENT_ID
+            }&redirect_uri=http://localhost:5173/&scope=profile%20email%20w_member_social`
+        )
+    }
+
     return (
         <div>
             {(() => {
@@ -37,6 +46,7 @@ export function Home() {
                         </pre>
                     )
 
+                return <button onClick={linkedInSSO}>LinkedIn SSO</button>
                 return <button onClick={getUserData}>Get User Data</button>
             })()}
         </div>
