@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useState } from 'react'
 
-import { container, content, button } from './container.css'
-import { light, dark } from '../styles/vars.css'
+import { container, header, headerContent, button, content } from './layout.css'
+import { light, dark } from '../../styles/vars.css'
 
 export const Layout = ({ children }: { children: ReactNode }) => {
     const [themeIsLight, setThemeIsLight] = useState(true)
@@ -13,15 +13,19 @@ export const Layout = ({ children }: { children: ReactNode }) => {
     const toggleTheme = () => setThemeIsLight(theme => !theme)
 
     return (
-        <div>
-            <div className={container}>
-                <div className={content}>
+        <div className={container}>
+            <header className={header}>
+                <div className={headerContent}>
                     <button className={button} onClick={toggleTheme}>
                         {`${themeIsLight ? '🌚' : '🌞'}`}
                     </button>
                 </div>
+            </header>
+            <div className={content}>
+                <h1>GitHub Enhancer</h1>
+                <p style={{ marginBottom: 40 }}>by React Serbia</p>
+                {children}
             </div>
-            {children}
         </div>
     )
 }
