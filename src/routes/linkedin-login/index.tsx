@@ -43,7 +43,7 @@ export function LinkedInLogin() {
         window.location.assign(
             `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${
                 import.meta.env.VITE_LINKEDIN_CLIENT_ID
-            }&redirect_uri=http://localhost:5173/app/login/linkedin&scope=profile%20email%20w_member_social`
+            }&redirect_uri=http://localhost:5173/app/login/linkedin&scope=openid%20profile%20w_member_social%20email`
         )
     }
 
