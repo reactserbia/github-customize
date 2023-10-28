@@ -1,9 +1,18 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 export function Home() {
     const [userData, setUserData] = useState(null)
-    const [code, linkedInCode] = useState('')
+    const [code, setCode] = useState('')
+    const [linkedInAccessToken, setLinkedInAccessToken] = useState('')
+
+    useEffect(() => {
+        const queryString = window.location.search
+        const urlParams = new URLSearchParams(queryString)
+        const codeParam = urlParams.get('code')
+
+        setCode(codeParam || '')
+    }, [])
 
     const getUserData = async () => {
         const githubAccessToken = localStorage.getItem('gitHubAccessToken')
@@ -36,9 +45,39 @@ export function Home() {
         )
     }
 
+    const getLinkedInAccessToken = async () => {
+        try {
+            const { data } = await axios.post(
+                'http://localhost:3000/github/get-access-token',
+                {
+                    code
+                },
+                {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }
+            )
+
+            console.log(data)
+
+            if (data.response?.access_token)
+                setLinkedInAccessToken(data.response.access_token)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <div>
             {(() => {
+                if (linkedInAccessToken) <div>{linkedInAccessToken}</div>
+                if (code)
+                    return (
+                        <button onClick={getLinkedInAccessToken}>
+                            Get Access Token
+                        </button>
+                    )
                 if (userData)
                     return (
                         <pre style={{ textAlign: 'left' }}>
