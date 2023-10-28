@@ -24,3 +24,22 @@ globalStyle(':root', {
     MozOsxFontSmoothing: 'grayscale',
     WebkitTextSizeAdjust: '100%'
 })
+
+globalStyle('button', {
+    padding: '0.3rem 1rem',
+    border: `1px solid ${vars.bordersInteractive}`,
+    borderRadius: 4,
+    fontSize: '1rem',
+    backgroundColor: vars.elementBackground,
+    cursor: 'pointer'
+})
+
+globalStyle('button:hover', {
+    border: `1px solid ${vars.bordersInteractiveFocused}`,
+    backgroundColor: vars.elementBackgroundHovered
+})
+
+globalStyle('button:active', {
+    border: `1px solid ${vars.bordersInteractiveFocused}`,
+    backgroundColor: vars.elementBackgroundActive
+})
