@@ -4,7 +4,7 @@ import { container, header, headerContent, button, content } from './layout.css'
 import { light, dark } from '../../styles/vars.css'
 
 export const Layout = ({ children }: { children: ReactNode }) => {
-    const [themeIsLight, setThemeIsLight] = useState(true)
+    const [themeIsLight, setThemeIsLight] = useState(false)
 
     useEffect(() => {
         document.querySelector('html')!.className = themeIsLight ? light : dark

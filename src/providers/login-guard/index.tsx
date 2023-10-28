@@ -1,6 +1,6 @@
 import { ReactNode, useEffect, useState } from 'react'
 
-import { Login } from '../../routes/login'
+import { GitHubLogin } from '../../routes/github-login'
 
 export function LoginGuard({ children }: { children: ReactNode }) {
     const [githubAccessToken, setGithubAccessToken] = useState<string | null>(
@@ -11,9 +11,5 @@ export function LoginGuard({ children }: { children: ReactNode }) {
         setGithubAccessToken(localStorage.getItem('gitHubAccessToken'))
     }, [])
 
-    return githubAccessToken ? (
-        <div>{children}</div>
-    ) : (
-        <Login setGithubAccessToken={setGithubAccessToken} />
-    )
+    return githubAccessToken ? <div>{children}</div> : <GitHubLogin />
 }

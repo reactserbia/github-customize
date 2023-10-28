@@ -1,93 +1,56 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+
+import { loggedInContainer } from './home.css'
+
+type LoggedInProps = {
+    accessToken: string
+    platform: 'github' | 'linkedin'
+}
+
+const LoggedIn = ({ accessToken, platform }: LoggedInProps) => (
+    <div className={loggedInContainer}>
+        <h6>
+            Logged in with {platform === 'github' ? 'GitHub' : 'LinkedIn'}: ✅
+        </h6>
+        <p>{accessToken}</p>
+    </div>
+)
 
 export function Home() {
-    const [userData, setUserData] = useState(null)
-    const [code, setCode] = useState('')
-    const [linkedInAccessToken, setLinkedInAccessToken] = useState('')
+    const [gitHubAccessToken, setGithubAccessToken] = useState<string | null>()
+    const [linkedInAccessToken, setLinkedInAccessToken] = useState<
+        string | null
+    >()
 
     useEffect(() => {
-        const queryString = window.location.search
-        const urlParams = new URLSearchParams(queryString)
-        const codeParam = urlParams.get('code')
-
-        setCode(codeParam || '')
+        setGithubAccessToken(localStorage.getItem('gitHubAccessToken'))
+        setLinkedInAccessToken(localStorage.getItem('linkedInAccessToken'))
     }, [])
+    const navigate = useNavigate()
 
-    const getUserData = async () => {
-        const githubAccessToken = localStorage.getItem('gitHubAccessToken')
-
-        try {
-            const { data } = await axios.post(
-                'https://api.github.com/user',
-                {},
-                {
-                    headers: {
-                        Accept: 'application/vnd.github+json',
-                        Authorization: `Bearer ${githubAccessToken}`,
-                        'Content-Type': 'application/json',
-                        'X-GitHub-Api-Version': '2022-11-28'
-                    }
-                }
-            )
-
-            setUserData(data)
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-    const linkedInSSO = () => {
-        window.location.assign(
-            `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${
-                import.meta.env.VITE_LINKEDIN_CLIENT_ID
-            }&redirect_uri=http://localhost:5173/&scope=profile%20email%20w_member_social`
-        )
-    }
-
-    const getLinkedInAccessToken = async () => {
-        try {
-            const { data } = await axios.post(
-                'http://localhost:3000/github/get-access-token',
-                {
-                    code
-                },
-                {
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                }
-            )
-
-            console.log(data)
-
-            if (data.response?.access_token)
-                setLinkedInAccessToken(data.response.access_token)
-        } catch (error) {
-            console.log(error)
-        }
-    }
+    const navigateToGitHubLogin = () => navigate('/app/login/github')
+    const navigateToLinkedInLogin = () => navigate('/app/login/linkedin')
 
     return (
         <div>
-            {(() => {
-                if (linkedInAccessToken) <div>{linkedInAccessToken}</div>
-                if (code)
-                    return (
-                        <button onClick={getLinkedInAccessToken}>
-                            Get Access Token
-                        </button>
-                    )
-                if (userData)
-                    return (
-                        <pre style={{ textAlign: 'left' }}>
-                            {JSON.stringify(userData, null, 2)}
-                        </pre>
-                    )
-
-                return <button onClick={linkedInSSO}>LinkedIn SSO</button>
-                return <button onClick={getUserData}>Get User Data</button>
-            })()}
+            {gitHubAccessToken ? (
+                <LoggedIn accessToken={gitHubAccessToken} platform='github' />
+            ) : (
+                <button onClick={navigateToGitHubLogin}>
+                    Login with GitHub
+                </button>
+            )}
+            {linkedInAccessToken ? (
+                <LoggedIn
+                    accessToken={linkedInAccessToken}
+                    platform='linkedin'
+                />
+            ) : (
+                <button onClick={navigateToLinkedInLogin}>
+                    Login with LinkedIn
+                </button>
+            )}
         </div>
     )
 }
