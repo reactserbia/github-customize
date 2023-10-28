@@ -55,6 +55,13 @@ globalStyle('h1', {
     margin: 0
 })
 
+globalStyle('h6', {
+    fontSize: '1.5rem',
+    fontWeight: 700,
+    color: vars.textContrastHigh,
+    margin: 0
+})
+
 globalStyle('p', {
     fontSize: '1rem',
     color: vars.textContrastLow,
