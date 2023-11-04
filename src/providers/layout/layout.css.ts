@@ -6,7 +6,7 @@ import { MAX_WIDTH } from '../../constants'
 export const container = style({
     width: '100%',
     minHeight: 'calc(100vh - 50px)',
-    paddingTop: 80
+    paddingTop: 120
 })
 
 export const header = style({
@@ -49,6 +49,28 @@ export const content = style({
     margin: '0 auto'
 })
 
+export const heading = style({
+    lineHeight: 1,
+    fontSize: '3rem',
+    fontWeight: 700,
+    color: vars.textContrastHigh,
+    margin: 0
+})
+
+export const subheading = style({
+    lineHeight: 1,
+    fontSize: '1.5rem',
+    color: vars.textContrastHigh,
+    marginBottom: '1rem'
+})
+
+export const description = style({
+    lineHeight: 1.2,
+    fontSize: '1rem',
+    color: vars.textContrastLow,
+    marginBottom: '4rem'
+})
+
 export const octocats = style({
     width: 'auto',
     minHeight: 300,
@@ -56,5 +78,5 @@ export const octocats = style({
     backgroundPosition: 'bottom center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    borderRadius: 10
+    borderRadius: '10px 10px 0 0'
 })
