@@ -6,7 +6,11 @@ import { MAX_WIDTH } from '../../constants'
 export const container = style({
     width: '100%',
     minHeight: 'calc(100vh - 50px)',
-    paddingTop: 50
+    paddingTop: 50,
+    backgroundImage: 'url(/images/banner.jpg)',
+    backgroundPosition: 'top center',
+    backgroundSize: 'auto 300px',
+    backgroundRepeat: 'no-repeat'
 })
 
 export const header = style({
@@ -18,7 +22,8 @@ export const header = style({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: vars.elementBackground
+    backdropFilter: 'blur(9px)',
+    WebkitBackdropFilter: 'blur(9px)'
 })
 
 export const headerContent = style({
