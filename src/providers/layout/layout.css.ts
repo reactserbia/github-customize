@@ -19,7 +19,8 @@ export const header = style({
     justifyContent: 'center',
     alignItems: 'center',
     backdropFilter: 'blur(9px)',
-    WebkitBackdropFilter: 'blur(9px)'
+    WebkitBackdropFilter: 'blur(9px)',
+    borderBottom: `1px solid ${vars.elementBackgroundHovered}`
 })
 
 export const headerContent = style({
@@ -27,8 +28,7 @@ export const headerContent = style({
     maxWidth: MAX_WIDTH,
     display: 'flex',
     justifyContent: 'flex-end',
-    alignItems: 'center',
-    padding: '0 1rem'
+    alignItems: 'center'
 })
 
 export const button = style({
@@ -44,8 +44,6 @@ export const button = style({
 export const content = style({
     width: '100%',
     maxWidth: MAX_WIDTH,
-    // backgroundColor: vars.subtleBackground,
-    overflow: 'hidden',
     margin: '0 auto'
 })
 
@@ -67,8 +65,13 @@ export const subheading = style({
 export const description = style({
     lineHeight: 1.2,
     fontSize: '1rem',
-    color: vars.textContrastLow,
-    marginBottom: '4rem'
+    color: vars.textContrastHigh,
+    marginBottom: '1rem'
+})
+
+export const main = style({
+    backgroundColor: vars.elementBackground,
+    borderRadius: 10
 })
 
 export const octocats = style({
@@ -78,5 +81,10 @@ export const octocats = style({
     backgroundPosition: 'bottom center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    borderRadius: '10px 10px 0 0'
+    borderRadius: '10px 10px 0 0',
+    marginTop: '4rem'
+})
+
+export const mainContent = style({
+    padding: '1rem'
 })

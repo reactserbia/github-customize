@@ -9,7 +9,9 @@ import {
     heading,
     subheading,
     description,
-    octocats
+    main,
+    octocats,
+    mainContent
 } from './layout.css'
 import { light, dark } from '../../styles/vars.css'
 
@@ -35,12 +37,20 @@ export const Layout = ({ children }: { children: ReactNode }) => {
                 <h1 className={heading}>GitHub Enhancer</h1>
                 <h2 className={subheading}>Tailor Your GitHub Experience</h2>
                 <p className={description}>
-                    Elevate your GitHub experience with GitHub Enhancer, the
-                    ultimate tool for personalizing your GitHub profile and
-                    enhancing your coding projects.
+                    Elevate your GitHub experience and presence with GitHub
+                    Enhancer, the ultimate all-in-one solution tool for
+                    personalizing your GitHub profile.
                 </p>
-                <div className={octocats} />
-                {children}
+                <p className={description}>
+                    Stand out in the developer community by customizing your
+                    profile, create eye-catching READMEs, and enjoy a more
+                    intuitive, productive GitHub journey. Elevate your GitHub
+                    presence with GitHub Enhancer.
+                </p>
+                <main className={main}>
+                    <div className={octocats} />
+                    <div className={mainContent}>{children}</div>
+                </main>
             </div>
         </div>
     )
