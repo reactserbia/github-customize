@@ -65,7 +65,7 @@ export const subheading = style({
 export const description = style({
     lineHeight: 1.2,
     fontSize: '1rem',
-    color: vars.textContrastHigh,
+    color: vars.textContrastLow,
     marginBottom: '1rem'
 })
 
