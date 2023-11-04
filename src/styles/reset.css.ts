@@ -23,7 +23,6 @@ globalStyle(':root', {
     WebkitFontSmoothing: 'antialiased',
     MozOsxFontSmoothing: 'grayscale',
     WebkitTextSizeAdjust: '100%',
-    textAlign: 'center',
     margin: '0 auto'
 })
 

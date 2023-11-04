@@ -1,1 +1,1 @@
-export const MAX_WIDTH = 1280
+export const MAX_WIDTH = 720

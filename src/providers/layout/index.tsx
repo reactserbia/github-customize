@@ -29,11 +29,9 @@ export const Layout = ({ children }: { children: ReactNode }) => {
                 </div>
             </header>
             <div className={content}>
-                <div className={octocats} />
                 <h1>GitHub Enhancer</h1>
-                <p style={{ fontStyle: 'italic', marginBottom: 40 }}>
-                    by React Serbia
-                </p>
+                <p>Tailor Your GitHub Experience</p>
+                <div className={octocats} />
                 {children}
             </div>
         </div>

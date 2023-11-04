@@ -44,9 +44,8 @@ export const button = style({
 export const content = style({
     width: '100%',
     maxWidth: MAX_WIDTH,
-    backgroundColor: vars.subtleBackground,
+    // backgroundColor: vars.subtleBackground,
     overflow: 'hidden',
-    borderRadius: 10,
     margin: '0 auto'
 })
 
@@ -56,5 +55,6 @@ export const octocats = style({
     backgroundImage: `url('/images/octocats.jpeg')`,
     backgroundPosition: 'bottom center',
     backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat'
+    backgroundRepeat: 'no-repeat',
+    borderRadius: 10
 })
