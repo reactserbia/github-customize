@@ -1,16 +1,12 @@
 import { style } from '@vanilla-extract/css'
 
 import { vars } from '../../styles/vars.css'
-import { MAX_WIDTH, BACKGROUND_BANNER_HEIGHT } from '../../constants'
+import { MAX_WIDTH } from '../../constants'
 
 export const container = style({
     width: '100%',
     minHeight: 'calc(100vh - 50px)',
-    paddingTop: `calc(${BACKGROUND_BANNER_HEIGHT}px - 50px)`,
-    backgroundImage: 'url(/images/banner.jpg)',
-    backgroundPosition: 'top center',
-    backgroundSize: `auto ${BACKGROUND_BANNER_HEIGHT}px`,
-    backgroundRepeat: 'no-repeat'
+    paddingTop: 80
 })
 
 export const header = style({
@@ -49,7 +45,16 @@ export const content = style({
     width: '100%',
     maxWidth: MAX_WIDTH,
     backgroundColor: vars.subtleBackground,
-    padding: '2rem',
+    overflow: 'hidden',
     borderRadius: 10,
     margin: '0 auto'
+})
+
+export const octocats = style({
+    width: 'auto',
+    minHeight: 300,
+    backgroundImage: `url('/images/octocats.jpeg')`,
+    backgroundPosition: 'bottom center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat'
 })

@@ -1,6 +1,13 @@
 import { ReactNode, useEffect, useState } from 'react'
 
-import { container, header, headerContent, button, content } from './layout.css'
+import {
+    container,
+    header,
+    headerContent,
+    button,
+    content,
+    octocats
+} from './layout.css'
 import { light, dark } from '../../styles/vars.css'
 
 export const Layout = ({ children }: { children: ReactNode }) => {
@@ -22,7 +29,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
                 </div>
             </header>
             <div className={content}>
-                {/* <img src='/images/octocats.jpeg' /> */}
+                <div className={octocats} />
                 <h1>GitHub Enhancer</h1>
                 <p style={{ fontStyle: 'italic', marginBottom: 40 }}>
                     by React Serbia
