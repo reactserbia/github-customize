@@ -1,15 +1,15 @@
 import { style } from '@vanilla-extract/css'
 
 import { vars } from '../../styles/vars.css'
-import { MAX_WIDTH } from '../../constants'
+import { MAX_WIDTH, BACKGROUND_BANNER_HEIGHT } from '../../constants'
 
 export const container = style({
     width: '100%',
     minHeight: 'calc(100vh - 50px)',
-    paddingTop: 50,
+    paddingTop: `calc(${BACKGROUND_BANNER_HEIGHT}px - 50px)`,
     backgroundImage: 'url(/images/banner.jpg)',
     backgroundPosition: 'top center',
-    backgroundSize: 'auto 300px',
+    backgroundSize: `auto ${BACKGROUND_BANNER_HEIGHT}px`,
     backgroundRepeat: 'no-repeat'
 })
 

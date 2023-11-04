@@ -22,6 +22,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
                 </div>
             </header>
             <div className={content}>
+                {/* <img src='/images/octocats.jpeg' /> */}
                 <h1>GitHub Enhancer</h1>
                 <p style={{ fontStyle: 'italic', marginBottom: 40 }}>
                     by React Serbia
