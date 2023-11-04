@@ -27,9 +27,14 @@ globalStyle(':root', {
 })
 
 globalStyle('button', {
+    display: 'inline-flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: '0.5rem',
     padding: '0.4rem 1rem',
     border: `1px solid ${vars.bordersInteractive}`,
     borderRadius: 4,
+    lineHeight: '1.2rem',
     fontSize: '1rem',
     color: vars.textContrastLow,
     backgroundColor: vars.elementBackground,
