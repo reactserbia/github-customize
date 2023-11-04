@@ -1,6 +1,6 @@
 import { createTheme, createThemeContract } from '@vanilla-extract/css'
 
-import { sky, cyanDark } from '@radix-ui/colors'
+import { iris, irisDark } from '@radix-ui/colors'
 
 export const vars = createThemeContract({
     appBackground: null,
@@ -22,39 +22,39 @@ export const vars = createThemeContract({
 })
 
 export const light = createTheme(vars, {
-    appBackground: sky.sky1,
-    subtleBackground: sky.sky2,
+    appBackground: iris.iris1,
+    subtleBackground: iris.iris2,
 
-    elementBackground: sky.sky3,
-    elementBackgroundHovered: sky.sky4,
-    elementBackgroundActive: sky.sky5,
+    elementBackground: iris.iris3,
+    elementBackgroundHovered: iris.iris4,
+    elementBackgroundActive: iris.iris5,
 
-    bordersNonInteractive: sky.sky6,
-    bordersInteractive: sky.sky7,
-    bordersInteractiveFocused: sky.sky8,
+    bordersNonInteractive: iris.iris6,
+    bordersInteractive: iris.iris7,
+    bordersInteractiveFocused: iris.iris8,
 
-    solidBackground: sky.sky9,
-    solidBackgroundHovered: sky.sky10,
+    solidBackground: iris.iris9,
+    solidBackgroundHovered: iris.iris10,
 
-    textContrastLow: sky.sky11,
-    textContrastHigh: sky.sky12
+    textContrastLow: iris.iris11,
+    textContrastHigh: iris.iris12
 })
 
 export const dark = createTheme(vars, {
-    appBackground: cyanDark.cyan1,
-    subtleBackground: cyanDark.cyan2,
+    appBackground: irisDark.iris1,
+    subtleBackground: irisDark.iris2,
 
-    elementBackground: cyanDark.cyan3,
-    elementBackgroundHovered: cyanDark.cyan4,
-    elementBackgroundActive: cyanDark.cyan5,
+    elementBackground: irisDark.iris3,
+    elementBackgroundHovered: irisDark.iris4,
+    elementBackgroundActive: irisDark.iris5,
 
-    bordersNonInteractive: cyanDark.cyan6,
-    bordersInteractive: cyanDark.cyan7,
-    bordersInteractiveFocused: cyanDark.cyan8,
+    bordersNonInteractive: irisDark.iris6,
+    bordersInteractive: irisDark.iris7,
+    bordersInteractiveFocused: irisDark.iris8,
 
-    solidBackground: cyanDark.cyan9,
-    solidBackgroundHovered: cyanDark.cyan10,
+    solidBackground: irisDark.iris9,
+    solidBackgroundHovered: irisDark.iris10,
 
-    textContrastLow: cyanDark.cyan11,
-    textContrastHigh: cyanDark.cyan12
+    textContrastLow: irisDark.iris11,
+    textContrastHigh: irisDark.iris12
 })
