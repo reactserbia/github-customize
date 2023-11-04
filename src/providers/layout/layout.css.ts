@@ -18,6 +18,7 @@ export const header = style({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    padding: '0 2rem',
     backdropFilter: 'blur(9px)',
     WebkitBackdropFilter: 'blur(9px)',
     borderBottom: `1px solid ${vars.elementBackgroundHovered}`
@@ -44,6 +45,7 @@ export const button = style({
 export const content = style({
     width: '100%',
     maxWidth: MAX_WIDTH,
+    padding: '0 2rem',
     margin: '0 auto'
 })
 
