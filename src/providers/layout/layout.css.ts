@@ -19,6 +19,7 @@ export const header = style({
     justifyContent: 'center',
     alignItems: 'center',
     padding: '0 2rem',
+    backgroundColor: vars.elementBackground,
     backdropFilter: 'blur(9px)',
     WebkitBackdropFilter: 'blur(9px)',
     borderBottom: `1px solid ${vars.elementBackgroundHovered}`
@@ -40,6 +41,16 @@ export const button = style({
     alignItems: 'center',
     fontSize: '1.5rem',
     borderRadius: 100
+})
+
+export const banner = style({
+    width: '100%',
+    height: 440,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    zIndex: -1,
+    backgroundColor: vars.subtleBackground
 })
 
 export const content = style({
@@ -88,5 +99,5 @@ export const octocats = style({
 })
 
 export const mainContent = style({
-    padding: '1rem'
+    padding: '2rem'
 })

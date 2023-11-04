@@ -5,6 +5,7 @@ import {
     header,
     headerContent,
     button,
+    banner,
     content,
     heading,
     subheading,
@@ -33,6 +34,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
                     </button>
                 </div>
             </header>
+            <div className={banner} />
             <div className={content}>
                 <h1 className={heading}>GitHub Enhancer</h1>
                 <h2 className={subheading}>Tailor Your GitHub Experience</h2>
