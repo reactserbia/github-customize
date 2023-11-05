@@ -1,5 +1,5 @@
-import { ChangeEvent, useRef, useState } from 'react'
-import { Reorder } from 'framer-motion'
+import { ChangeEvent, useRef, useState, PointerEvent } from 'react'
+import { Reorder, useDragControls } from 'framer-motion'
 import { FormControl, FormField } from '@radix-ui/react-form'
 import { RowSpacingIcon } from '@radix-ui/react-icons'
 
@@ -14,6 +14,11 @@ type ReorderItemProps = {
 export const ReorderItem = ({ item }: ReorderItemProps) => {
     const [value, setValue] = useState('')
 
+    const dragControls = useDragControls()
+
+    const handleDragging = (event: PointerEvent<HTMLDivElement>) =>
+        dragControls.start(event)
+
     const textareaRef = useRef<HTMLTextAreaElement>(null)
 
     const onChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>) => {
@@ -25,8 +30,14 @@ export const ReorderItem = ({ item }: ReorderItemProps) => {
     }
 
     return (
-        <Reorder.Item as='div' className={container} value={item}>
-            <div className={dragHandle}>
+        <Reorder.Item
+            as='div'
+            className={container}
+            value={item}
+            dragListener={false}
+            dragControls={dragControls}
+        >
+            <div className={dragHandle} onPointerDown={handleDragging}>
                 <RowSpacingIcon />
             </div>
             <FormField className={formField} name={item.id}>
