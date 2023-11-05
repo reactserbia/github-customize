@@ -1,6 +1,6 @@
-import { useNavigate } from 'react-router-dom'
 import { GitHubLogoIcon } from '@radix-ui/react-icons'
 
+import { useLogin } from '@/services'
 import {
     heading,
     subheading,
@@ -11,9 +11,7 @@ import {
 } from './home.css'
 
 export function Home() {
-    const navigate = useNavigate()
-
-    const navigateToGitHubLogin = () => navigate('/app/login/github')
+    const { loginWithGitHub } = useLogin()
 
     return (
         <>
@@ -37,7 +35,7 @@ export function Home() {
                         is a prerequisite. Identity verification is essential to
                         safeguard against spamming pull requests.
                     </p>
-                    <button onClick={navigateToGitHubLogin}>
+                    <button onClick={loginWithGitHub}>
                         <GitHubLogoIcon />
                         Login with GitHub
                     </button>
