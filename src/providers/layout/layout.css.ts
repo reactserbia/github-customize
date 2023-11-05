@@ -22,8 +22,7 @@ export const header = style({
     padding: '0 2rem',
     backgroundColor: vars.elementBackground,
     backdropFilter: 'blur(9px)',
-    WebkitBackdropFilter: 'blur(9px)',
-    borderBottom: `1px solid ${vars.elementBackgroundHovered}`
+    WebkitBackdropFilter: 'blur(9px)'
 })
 
 export const headerContent = style({
@@ -46,12 +45,12 @@ export const button = style({
 
 export const banner = style({
     width: '100%',
-    height: 440,
+    height: 600,
     position: 'absolute',
     top: 0,
     left: 0,
     zIndex: -1,
-    backgroundColor: vars.elementBackground
+    backgroundImage: `linear-gradient(180deg, ${vars.appBackground} 0%, ${vars.elementBackground} 100%)`
 })
 
 export const content = style({
