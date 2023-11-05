@@ -8,19 +8,20 @@ export const container = style({
     alignItems: 'stretch',
     flexDirection: 'row',
     gap: 8,
-    backgroundColor: vars.elementBackground,
-    borderRadius: '4px',
+    backgroundColor: vars.elementBackgroundHovered,
+    borderRadius: 8,
     padding: '1rem',
     marginBottom: '1rem'
 })
 
 export const dragHandle = style({
-    width: 36,
+    width: 40,
     display: 'flex',
-    color: vars.textContrastHigh,
-    backgroundColor: vars.elementBackgroundHovered,
     justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: 4,
+    color: vars.textContrastHigh,
+    backgroundColor: vars.elementBackground,
     cursor: 'grab'
 })
 
@@ -30,7 +31,7 @@ export const formField = style({
 
 export const textarea = style({
     width: '100%',
-    backgroundColor: vars.elementBackgroundHovered,
+    backgroundColor: vars.subtleBackground,
     border: 'none',
     borderRadius: '4px',
     padding: '0.5rem',

@@ -11,6 +11,12 @@ export const heading = style({
     fontWeight: 700,
     color: vars.textContrastHigh,
     margin: 0
+
+    // background: '-webkit-linear-gradient(300deg, #93f5ec 20%, #a77bf3 70%)',
+    // WebkitBackgroundClip: 'text',
+    // backgroundClip: 'text',
+    // WebkitTextFillColor: 'transparent',
+    // WebkitBoxDecorationBreak: 'clone'
 })
 
 export const subheading = style({
@@ -25,8 +31,9 @@ export const buttonsContainer = style({
     display: 'flex',
     justifyContent: 'flex-start',
     alignItems: 'center',
+    flexWrap: 'wrap',
     gap: '1rem',
-    marginBottom: '1rem'
+    margin: '4rem 0 1rem'
 })
 
 export const reorderItem = style({

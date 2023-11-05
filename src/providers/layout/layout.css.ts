@@ -6,7 +6,8 @@ import { MAX_WIDTH } from '../../constants'
 export const container = style({
     width: '100%',
     minHeight: 'calc(100vh - 50px)',
-    padding: '120px 0 120px'
+    padding: '120px 0 120px',
+    overflow: 'hidden'
 })
 
 export const header = style({
@@ -50,7 +51,7 @@ export const banner = style({
     top: 0,
     left: 0,
     zIndex: -1,
-    backgroundColor: vars.subtleBackground
+    backgroundColor: vars.elementBackground
 })
 
 export const content = style({
