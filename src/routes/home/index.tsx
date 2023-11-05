@@ -32,9 +32,10 @@ export function Home() {
             <main className={main}>
                 <div className={octocats} />
                 <div className={mainContent}>
-                    <p>
+                    <p className={description}>
                         To utilize the application, authentication with GitHub
-                        is a mandatory step.
+                        is a prerequisite. Identity verification is essential to
+                        safeguard against spamming pull requests.
                     </p>
                     <button onClick={navigateToGitHubLogin}>
                         <GitHubLogoIcon />

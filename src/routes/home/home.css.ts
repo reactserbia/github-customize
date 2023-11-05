@@ -18,7 +18,7 @@ export const subheading = style({
 })
 
 export const description = style({
-    width: '90%',
+    // width: '90%',
     lineHeight: 1.2,
     fontSize: '1rem',
     color: vars.textContrastLow,
@@ -27,7 +27,8 @@ export const description = style({
 
 export const main = style({
     backgroundColor: vars.elementBackground,
-    borderRadius: 10
+    borderRadius: 10,
+    marginTop: '4rem'
 })
 
 export const octocats = style({
@@ -37,8 +38,7 @@ export const octocats = style({
     backgroundPosition: 'bottom center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    borderRadius: '10px 10px 0 0',
-    marginTop: '4rem'
+    borderRadius: '10px 10px 0 0'
 })
 
 export const mainContent = style({
