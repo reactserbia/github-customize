@@ -75,3 +75,12 @@ globalStyle('pre', {
     fontSize: '1rem',
     color: vars.textContrastLow
 })
+
+globalStyle('input', {
+    width: '100%',
+    padding: '0.4rem 1rem',
+    border: `1px solid ${vars.bordersInteractive}`,
+    borderRadius: 4,
+    outline: 'none',
+    margin: 0
+})
