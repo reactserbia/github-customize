@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import { Layout } from './providers/layout'
 
-import { Home, Login } from './routes'
+import { App, Home, Login } from './routes'
 
 const router = createBrowserRouter([
     {
@@ -19,11 +19,7 @@ const router = createBrowserRouter([
     },
     {
         path: 'app',
-        element: (
-            <div>
-                <p>WELCOME!</p>
-            </div>
-        )
+        element: <App />
     }
 ])
 
