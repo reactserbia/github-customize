@@ -1,52 +1,25 @@
-import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import { useEffect } from 'react'
+
+import { useLogin } from '@/services'
 
 import './login.css'
 
 export function Login() {
-    const [code, setCode] = useState('')
-
-    const navigate = useNavigate()
+    const { exchangeGitHubCodeForAccessToken } = useLogin()
 
     useEffect(() => {
         const queryString = window.location.search
         const urlParams = new URLSearchParams(queryString)
         const codeParam = urlParams.get('code')
 
-        setCode(codeParam || '')
-    }, [])
-
-    const getAccessToken = async () => {
-        try {
-            const { data } = await axios.post(
-                'http://localhost:3000/github/get-access-token',
-                {
-                    code
-                },
-                {
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                }
-            )
-
-            if (data.response?.access_token) {
-                // save token
-                localStorage.setItem(
-                    'gitHubAccessToken',
-                    data.response.access_token
-                )
-                navigate('/')
-            }
-        } catch (error) {
-            console.log(error)
+        if (codeParam) {
+            exchangeGitHubCodeForAccessToken(codeParam)
         }
-    }
+    }, [exchangeGitHubCodeForAccessToken])
 
     return (
         <div>
-            <button onClick={getAccessToken}>Get Access Token</button>
+            <p>Loading...</p>
         </div>
     )
 }
