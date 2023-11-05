@@ -4,11 +4,30 @@ import { Reorder } from 'framer-motion'
 import { PlusIcon } from '@radix-ui/react-icons'
 
 import { ReorderItem } from '@/components'
+import { Element, ElementType } from '@/models'
 
 import { container, heading, subheading, buttonsContainer } from './app.css'
 
 export function App() {
-    const [items, setItems] = useState<string[]>([])
+    const [items, setItems] = useState<Element[]>([])
+
+    const addNewHeadingHandler = () =>
+        setItems(items => [
+            ...items,
+            { id: crypto.randomUUID(), type: ElementType.H1, text: '' }
+        ])
+
+    const addNewSubheadingHandler = () =>
+        setItems(items => [
+            ...items,
+            { id: crypto.randomUUID(), type: ElementType.H2, text: '' }
+        ])
+
+    const addNewParagraphHandler = () =>
+        setItems(items => [
+            ...items,
+            { id: crypto.randomUUID(), type: ElementType.PARAGRAPH, text: '' }
+        ])
 
     return (
         <div className={container}>
@@ -18,19 +37,19 @@ export function App() {
             </h2>
 
             <div className={buttonsContainer}>
-                <button>
+                <button onClick={addNewHeadingHandler}>
                     <PlusIcon /> Heading
                 </button>
-                <button>
+                <button onClick={addNewSubheadingHandler}>
                     <PlusIcon /> Subheading
                 </button>
-                <button>
+                <button onClick={addNewParagraphHandler}>
                     <PlusIcon /> Paragraph
                 </button>
             </div>
             <Reorder.Group axis='y' values={items} onReorder={setItems}>
                 {items.map(item => (
-                    <ReorderItem key={item} item={item} />
+                    <ReorderItem key={item.id} item={item} />
                 ))}
             </Reorder.Group>
         </div>
