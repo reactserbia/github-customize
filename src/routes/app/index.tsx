@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Reorder } from 'framer-motion'
 import { PlusIcon } from '@radix-ui/react-icons'
 import { Root } from '@radix-ui/react-form'
+import { v4 as uuidv4 } from 'uuid'
 
 import { ReorderItem } from '@/components'
 import { Element, ElementType } from '@/models'
@@ -14,19 +15,19 @@ export function App() {
     const addNewHeadingHandler = () =>
         setItems(items => [
             ...items,
-            { id: crypto.randomUUID(), type: ElementType.H1, text: '' }
+            { id: uuidv4(), type: ElementType.H1, text: '' }
         ])
 
     const addNewSubheadingHandler = () =>
         setItems(items => [
             ...items,
-            { id: crypto.randomUUID(), type: ElementType.H2, text: '' }
+            { id: uuidv4(), type: ElementType.H2, text: '' }
         ])
 
     const addNewParagraphHandler = () =>
         setItems(items => [
             ...items,
-            { id: crypto.randomUUID(), type: ElementType.PARAGRAPH, text: '' }
+            { id: uuidv4(), type: ElementType.PARAGRAPH, text: '' }
         ])
 
     return (
