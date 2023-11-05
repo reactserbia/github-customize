@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-import './github-login.css'
+import './login.css'
 
-export function GitHubLogin() {
+export function Login() {
     const [code, setCode] = useState('')
 
     const navigate = useNavigate()
@@ -16,14 +16,6 @@ export function GitHubLogin() {
 
         setCode(codeParam || '')
     }, [])
-
-    const loginWithGitHub = () => {
-        window.location.assign(
-            'https://github.com/login/oauth/authorize?client_id=' +
-                import.meta.env.VITE_GITHUB_CLIENT_ID +
-                '&scope=user'
-        )
-    }
 
     const getAccessToken = async () => {
         try {
@@ -54,22 +46,7 @@ export function GitHubLogin() {
 
     return (
         <div>
-            {(() => {
-                if (code)
-                    return (
-                        <button onClick={getAccessToken}>
-                            Get Access Token
-                        </button>
-                    )
-
-                return (
-                    <div className='card'>
-                        <button onClick={loginWithGitHub}>
-                            Login with GitHub
-                        </button>
-                    </div>
-                )
-            })()}
+            <button onClick={getAccessToken}>Get Access Token</button>
         </div>
     )
 }

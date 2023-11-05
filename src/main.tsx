@@ -6,9 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import { Layout } from './providers/layout'
 
-import { Home } from './routes/home'
-import { GitHubLogin } from './routes/github-login'
-import { LinkedInLogin } from './routes/linkedin-login'
+import { Home, Login } from './routes'
 
 const router = createBrowserRouter([
     {
@@ -16,22 +14,12 @@ const router = createBrowserRouter([
         element: <Home />
     },
     {
+        path: 'login',
+        element: <Login />
+    },
+    {
         path: 'app',
-        children: [
-            {
-                path: 'login',
-                children: [
-                    {
-                        path: 'github',
-                        element: <GitHubLogin />
-                    },
-                    {
-                        path: 'linkedin',
-                        element: <LinkedInLogin />
-                    }
-                ]
-            }
-        ]
+        element: <div>APP</div>
     }
 ])
 
@@ -39,9 +27,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
         <Layout>
             <RouterProvider router={router} />
-            {/* <LoginGuard>
-                <Home />
-            </LoginGuard> */}
         </Layout>
     </React.StrictMode>
 )
