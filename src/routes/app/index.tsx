@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Reorder } from 'framer-motion'
-
 import { PlusIcon } from '@radix-ui/react-icons'
+import { Root } from '@radix-ui/react-form'
 
 import { ReorderItem } from '@/components'
 import { Element, ElementType } from '@/models'
@@ -47,11 +47,13 @@ export function App() {
                     <PlusIcon /> Paragraph
                 </button>
             </div>
-            <Reorder.Group axis='y' values={items} onReorder={setItems}>
-                {items.map(item => (
-                    <ReorderItem key={item.id} item={item} />
-                ))}
-            </Reorder.Group>
+            <Root>
+                <Reorder.Group axis='y' values={items} onReorder={setItems}>
+                    {items.map(item => (
+                        <ReorderItem key={item.id} item={item} />
+                    ))}
+                </Reorder.Group>
+            </Root>
         </div>
     )
 }

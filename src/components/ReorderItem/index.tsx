@@ -1,4 +1,5 @@
 import { Reorder } from 'framer-motion'
+import { FormControl, FormField } from '@radix-ui/react-form'
 
 import { Element } from '@/models'
 
@@ -11,7 +12,11 @@ type ReorderItemProps = {
 export const ReorderItem = ({ item }: ReorderItemProps) => {
     return (
         <Reorder.Item as='div' className={container} value={item}>
-            {item.id} - {item.type}
+            <FormField name={item.id}>
+                <FormControl asChild>
+                    <input />
+                </FormControl>
+            </FormField>
         </Reorder.Item>
     )
 }
